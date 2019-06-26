@@ -1,4 +1,6 @@
 # redmagic_pz_claibration
+## DEMO
+[![Demo redmagic pz](https://gph.is/g/EBnqXeD)] 
 ## How to run 
  Simply find an example in [submit.sh](job/submit.sh)
  
