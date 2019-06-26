@@ -1,0 +1,24 @@
+../code/run_diagoostic.py:29: VisibleDeprecationWarning: Passing `normed=True` on non-uniform bins has always been broken, and computes neither the probability density function nor the probability mass function. The result is only correct if the bins are uniform, when density=True will produce the same result anyway. The argument will be removed in a future version of numpy.
+  histogram, _ = np.histogram(cat['ZSPEC'][mask], bins=bins, normed=True)
+../code/run_diagoostic.py:30: DeprecationWarning: Passing normed=False is deprecated, and has no effect. Consider passing the density argument instead.
+  histogram_test, _ = np.histogram(cat['ZSPEC'][mask], bins=bins, normed=False)
+../code/run_diagoostic.py:31: RuntimeWarning: invalid value encountered in true_divide
+  hist_err = histogram/np.sqrt(histogram_test)
+Traceback (most recent call last):
+  File "../code/run_diagoostic.py", line 59, in <module>
+    mpipool.wait()
+  File "/home/groups/kipac/chto/anaconda2/envs/newenv3/lib/python3.7/site-packages/schwimmbad/mpi.py", line 98, in wait
+    result = func(arg)
+  File "../code/run_diagoostic.py", line 35, in worker
+    emgm.fit(x)
+  File "/home/users/chto/code/redmagic_first_attempt/code/fitting_scheme.py", line 98, in fit
+    self.w, self.f, self.mu, self.cov = run_em(x, self.w, self.phi, self.mu, self.cov, silent=self.silent)
+  File "/home/users/chto/code/redmagic_first_attempt/code/fitting_scheme.py", line 58, in run_em
+    p_given_z = np.array([multivariate_normal.pdf(x[j], mu[i], sigma[i]) for j in range(m)]) 
+  File "/home/users/chto/code/redmagic_first_attempt/code/fitting_scheme.py", line 58, in <listcomp>
+    p_given_z = np.array([multivariate_normal.pdf(x[j], mu[i], sigma[i]) for j in range(m)]) 
+  File "/home/groups/kipac/chto/anaconda2/envs/newenv3/lib/python3.7/site-packages/scipy/stats/_multivariate.py", line 521, in pdf
+    psd = _PSD(cov, allow_singular=allow_singular)
+  File "/home/groups/kipac/chto/anaconda2/envs/newenv3/lib/python3.7/site-packages/scipy/stats/_multivariate.py", line 163, in __init__
+    raise np.linalg.LinAlgError('singular matrix')
+numpy.linalg.LinAlgError: singular matrix
