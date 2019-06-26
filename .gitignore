@@ -6,3 +6,4 @@
 *.pyc
 *.npy
 *.png
+*.DS_Store
